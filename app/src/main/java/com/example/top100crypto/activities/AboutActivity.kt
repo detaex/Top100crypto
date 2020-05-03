@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.top100crypto.R
+import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_about.*
 
 class AboutActivity : AppCompatActivity() {
@@ -14,6 +15,9 @@ class AboutActivity : AppCompatActivity() {
         setContentView(R.layout.activity_about)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         buttonRateApp.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${applicationContext.packageName}")))
